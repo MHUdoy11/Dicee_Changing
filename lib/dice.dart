@@ -11,6 +11,12 @@ class Dice extends StatefulWidget {
 class _DiceState extends State<Dice> {
   int ldrn=2;
   int rdrn=1;
+  void press(){
+    setState(() {
+      rdrn= Random().nextInt(6)+1;
+      ldrn= Random().nextInt(6)+1;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +24,13 @@ class _DiceState extends State<Dice> {
       appBar:
         AppBar(
           backgroundColor: Colors.green[500],
-          title: Text('Dicee Changing',
-            style:
-            TextStyle(
-              fontSize: 22,
-              color: Colors.white,
+          title: Center(
+            child: Text('Dicee Changing',
+              style:
+              TextStyle(
+                fontSize: 22,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -34,10 +42,7 @@ class _DiceState extends State<Dice> {
             // ignore: deprecated_member_use
             FlatButton(
               onPressed: () {
-              setState(() {
-                ldrn= Random().nextInt(6)+1;
-
-              });
+            press();
             },
               child:Image.asset('images/dice$ldrn.png',
                 color: Colors.purpleAccent,
@@ -50,9 +55,7 @@ class _DiceState extends State<Dice> {
             // ignore: deprecated_member_use
             FlatButton(
               onPressed: () {
-                setState(() {
-                  rdrn= Random().nextInt(6)+1;
-                });
+                press();
               },
               child:Image.asset('images/dice$rdrn.png',
                 color: Colors.redAccent,
