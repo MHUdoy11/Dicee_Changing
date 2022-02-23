@@ -20,51 +20,72 @@ class _DiceState extends State<Dice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.teal[400],
       appBar:
         AppBar(
-          backgroundColor: Colors.green[500],
+          backgroundColor: Colors.green[900],
           title: Center(
             child: Text('Dicee Changing',
               style:
               TextStyle(
-                fontSize: 22,
+                fontFamily: 'Dancing_Script',
+                fontSize: 42,
                 color: Colors.white,
               ),
             ),
           ),
         ),
-      body: Center(
-        child: Row(
-          children: [
+      body:
 
-            Expanded(child:
-            // ignore: deprecated_member_use
-            FlatButton(
-              onPressed: () {
-            press();
-            },
-              child:Image.asset('images/dice$ldrn.png',
-                color: Colors.purpleAccent,
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            color: Colors.white
+            ,
+            child: Text('Click and enjoy the changing',
+              style:
+              TextStyle(
+                fontFamily: 'Cookie',
+                fontSize: 46,
+                color: Colors.cyan,
               ),
             ),
-            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            children: [
 
-            Expanded(
-              child:
-            // ignore: deprecated_member_use
-            FlatButton(
-              onPressed: () {
-                press();
+              Expanded(child:
+              // ignore: deprecated_member_use
+              FlatButton(
+                onPressed: () {
+              press();
               },
-              child:Image.asset('images/dice$rdrn.png',
-                color: Colors.redAccent,
+                child:Image.asset('images/dice$ldrn.png',
+                  color: Colors.purpleAccent,
+                ),
               ),
-            ),
-            ),
+              ),
 
-          ],
-        ),
+              Expanded(
+                child:
+              // ignore: deprecated_member_use
+              FlatButton(
+                onPressed: () {
+                  press();
+                },
+                child:Image.asset('images/dice$rdrn.png',
+                  color: Colors.redAccent,
+                ),
+              ),
+              ),
+
+            ],
+          ),
+        ],
       ),
     );
   }
