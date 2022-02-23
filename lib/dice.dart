@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Dice extends StatefulWidget {
   const Dice({Key? key}) : super(key: key);
@@ -8,9 +9,10 @@ class Dice extends StatefulWidget {
 }
 
 class _DiceState extends State<Dice> {
+  int ldrn=2;
+  int rdrn=1;
   @override
   Widget build(BuildContext context) {
-    int ldrn=6;
     return Scaffold(
       backgroundColor: Colors.teal,
       appBar:
@@ -29,18 +31,32 @@ class _DiceState extends State<Dice> {
           children: [
 
             Expanded(child:
-            FlatButton(onPressed: () {
-              print('i am there');
+            // ignore: deprecated_member_use
+            FlatButton(
+              onPressed: () {
+              setState(() {
+                ldrn= Random().nextInt(6)+1;
+
+              });
             },
-              child:Image.asset('images/dice$ldrn.png'),
+              child:Image.asset('images/dice$ldrn.png',
+                color: Colors.purpleAccent,
+              ),
             ),
             ),
 
-            Expanded(child:
-            FlatButton(onPressed: () {
-              print('i am here');
-            },
-            child:Image.asset('images/dice5.png'),
+            Expanded(
+              child:
+            // ignore: deprecated_member_use
+            FlatButton(
+              onPressed: () {
+                setState(() {
+                  rdrn= Random().nextInt(6)+1;
+                });
+              },
+              child:Image.asset('images/dice$rdrn.png',
+                color: Colors.redAccent,
+              ),
             ),
             ),
 
